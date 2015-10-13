@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" id="site" class="nojs">
+<head>
+
+    <title>Tangent House Styles NKD</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="static/dist/css/styles.min.css"/>
+
+    <script>
+        /* we want to remove the nojs class as soon as possible on page load */
+        document.getElementById("site").className = document.getElementById("site").className.replace(/nojs/i,'');
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                <img src="static/dist/img/red.png" class="red img-src" alt="">
+            </div>
+            <div class="span3">
+                <img src="static/dist/img/blue.png" class="blue img-src" alt="">
+            </div>
+            <div class="span3">
+                <img src="static/dist/img/green.png" class="green img-src" alt="">
+            </div>
+            <div class="span3">
+                <img src="static/dist/img/pink.png" class="pink img-src" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script src="static/dist/bower_components/jquery/dist/jquery.js"></script>
+    <script src="static/dist/bower_components/color-thief/dist/color-thief.min.js"></script>
+    <script src="static/dist/bower_components/nearest-color/nearestColor.js"></script>
+
+    <script src="static/dist/js/jquery.mynearestcolour.min.js"></script>
+
+    <script>
+
+
+        $(window).load(function() {
+        
+            $('.img-src').myNearestColour({
+                paletteLength: 7,
+                colours: ['#e62b27','#2b3b90','#0a8b37','#d9006c'],
+                getPalette: function(data) { 
+                    console.log(data);
+                },
+                getNearestPalette: function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        console.log('colour: ' + data[i]);
+                    }
+                },
+                getNearestColour: function(data) {
+                    console.log('Nearest colour: ' + data);
+                }
+            });
+                
+        });
+        
+
+        
+    </script>
+
+</body>
+</html>
